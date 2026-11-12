@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Birthday Mission #01 🕷️</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Geom:ital,wght@0,300..900;1,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- Your existing stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Cake-specific stylesheet -->
+    <link rel="stylesheet" href="cake.css">
+</head>
+
+<body class="cake-page">
+
+    <!-- Floating decorations -->
+    <div class="cake-bg-heart heart-1">♥</div>
+    <div class="cake-bg-heart heart-2">♥</div>
+    <div class="cake-bg-heart heart-3">♥</div>
+
+    <div class="cake-bg-web web-1">🕸️</div>
+    <div class="cake-bg-web web-2">🕷️</div>
+
+    <main class="cake-container">
+
+        <!-- Mission heading -->
+        <div class="mission-label">
+            🕷️ BIRTHDAY MISSION #01
+        </div>
+
+        <h1>
+            LET'S BAKE YOUR CAKE,
+            <span>BIRTHDAY BOY 🎂</span>
+        </h1>
+
+        <p class="cake-subtitle">
+            Even Spider-Man needs cake before saving the city. 🕷️
+        </p>
+
+
+        <!-- Progress -->
+        <div class="cake-progress">
+            <div class="progress-text">
+                STEP <span id="currentStep">1</span> OF 5
+            </div>
+
+            <div class="progress-bar">
+                <div id="progressFill"></div>
+            </div>
+        </div>
+
+
+        <!-- Cake display -->
+        <section class="cake-stage">
+
+            <div class="cake-wrapper">
+
+                <!-- Candles will be added by JavaScript -->
+                <div id="candles" class="candles"></div>
+
+                <!-- Cake -->
+                <div id="cake" class="cake">
+
+                    <div id="cakeDecorations" class="cake-decorations"></div>
+
+                    <div id="frosting" class="frosting"></div>
+
+                    <div class="cake-layer cake-top"></div>
+                    <div class="cake-layer cake-middle"></div>
+                    <div class="cake-layer cake-bottom"></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Interactive controls -->
+        <section class="cake-controls">
+
+            <!-- STEP 1 -->
+            <div class="cake-step active" id="step1">
+
+                <h2>First... choose your cake base 🍰</h2>
+
+                <p>
+                    What flavour are we making for the birthday boy?
+                </p>
+
+                <div class="choice-buttons">
+
+                    <button class="cake-choice" data-base="chocolate">
+                        🍫 Chocolate
+                    </button>
+
+                    <button class="cake-choice" data-base="strawberry">
+                        🍓 Strawberry
+                    </button>
+
+                    <button class="cake-choice" data-base="vanilla">
+                        🍦 Vanilla
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- STEP 2 -->
+            <div class="cake-step" id="step2">
+
+                <h2>Now let's add some frosting! 🎀</h2>
+
+                <p>
+                    Because plain cake is simply unacceptable.
+                </p>
+
+                <div class="choice-buttons">
+
+                    <button class="frosting-choice" data-frosting="pink">
+                        💗 Pink
+                    </button>
+
+                    <button class="frosting-choice" data-frosting="white">
+                        🤍 Vanilla
+                    </button>
+
+                    <button class="frosting-choice" data-frosting="red">
+                        ❤️ Red Velvet
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- STEP 3 -->
+            <div class="cake-step" id="step3">
+
+                <h2>Time to decorate! ✨</h2>
+
+                <p>
+                    Make it cute. You have been warned. 😌
+                </p>
+
+                <div class="choice-buttons">
+
+                    <button class="decoration-choice" data-decoration="web">
+                        🕸️ Spider Web
+                    </button>
+
+                    <button class="decoration-choice" data-decoration="heart">
+                        ❤️ Hearts
+                    </button>
+
+                    <button class="decoration-choice" data-decoration="strawberry">
+                        🍓 Strawberries
+                    </button>
+
+                    <button class="decoration-choice" data-decoration="chocolate">
+                        🍫 Choco Chips
+                    </button>
+
+                </div>
+
+                <button id="finishDecorating" class="next-button">
+                    I'M DONE DECORATING ✨
+                </button>
+
+            </div>
+
+
+            <!-- STEP 4 -->
+            <div class="cake-step" id="step4">
+
+                <h2>Every birthday cake needs candles 🕯️</h2>
+
+                <p>
+                    Add the candles...
+                </p>
+
+                <button id="addCandles" class="next-button">
+                    ADD CANDLES 🕯️
+                </button>
+
+            </div>
+
+
+            <!-- STEP 5 -->
+            <div class="cake-step" id="step5">
+
+                <h2 id="candleTitle">
+                    Almost there... 👀
+                </h2>
+
+                <p id="candleMessage">
+                    Light the candles and make a wish. ✨
+                </p>
+
+                <button id="lightCandles" class="next-button">
+                    LIGHT THE CANDLES 🔥
+                </button>
+
+                <button id="blowCandles" class="next-button hidden">
+                    BLOW THEM OUT 💨
+                </button>
+
+            </div>
+
+
+            <!-- Messages -->
+            <div id="cakeMessage" class="cake-message">
+                Choose your cake base, birthday boy 😌
+            </div>
+
+
+            <!-- Final button -->
+            <button id="continueButton" class="continue-button hidden">
+                CONTINUE TO THE BALLOONS 🎈
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <script src="cake.js"></script>
+
+</body>
+</html>

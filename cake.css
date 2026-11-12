@@ -1,0 +1,803 @@
+/* ==========================================
+   SPIDER-MAN BIRTHDAY — CAKE PAGE
+   ========================================== */
+
+* {
+    box-sizing: border-box;
+}
+h1 {
+    font-family: "Geom", sans-serif;
+    font-weight: 800;
+}
+body.cake-page {
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(circle at 20% 20%, rgba(220, 20, 60, 0.18), transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(30, 80, 200, 0.18), transparent 30%),
+        #070b18;
+
+    color: white;
+    font-family: "Montserrat", sans-serif;
+}
+
+
+/* ==========================================
+   BACKGROUND DECORATIONS
+   ========================================== */
+
+.cake-bg-heart,
+.cake-bg-web {
+    position: fixed;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.cake-bg-heart {
+    color: rgba(255, 50, 90, 0.35);
+    font-size: 28px;
+    animation: floatHeart 5s ease-in-out infinite;
+}
+
+.heart-1 {
+    left: 8%;
+    top: 18%;
+}
+
+.heart-2 {
+    right: 10%;
+    top: 30%;
+    animation-delay: 1.5s;
+}
+
+.heart-3 {
+    left: 15%;
+    bottom: 15%;
+    animation-delay: 3s;
+}
+
+.cake-bg-web {
+    font-size: 40px;
+    opacity: 0.35;
+    animation: slowFloat 6s ease-in-out infinite;
+}
+
+.web-1 {
+    right: 7%;
+    top: 12%;
+}
+
+.web-2 {
+    left: 5%;
+    bottom: 10%;
+    animation-delay: 2s;
+}
+
+
+@keyframes floatHeart {
+
+    0%, 100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(8deg);
+    }
+}
+
+@keyframes slowFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+
+/* ==========================================
+   MAIN CONTAINER
+   ========================================== */
+
+.cake-container {
+    position: relative;
+    z-index: 2;
+
+    width: min(950px, 94%);
+    margin: auto;
+    padding: 45px 20px 60px;
+
+    text-align: center;
+}
+
+
+/* ==========================================
+   HEADING
+   ========================================== */
+
+.mission-label {
+    display: inline-block;
+
+    padding: 8px 18px;
+    margin-bottom: 15px;
+
+    border: 1px solid rgba(255, 50, 80, 0.6);
+    border-radius: 30px;
+
+    color: #ff5470;
+    background: rgba(255, 30, 60, 0.08);
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.cake-container h1 {
+    margin: 10px auto;
+
+    max-width: 750px;
+
+    font-family: "Geom", sans-serif;
+    font-size: clamp(32px, 6vw, 60px);
+    line-height: 1.05;
+
+    letter-spacing: -1px;
+}
+
+.cake-container h1 span {
+    display: block;
+    color: #ff355d;
+
+    text-shadow:
+        0 0 15px rgba(255, 40, 80, 0.35);
+}
+
+.cake-subtitle {
+    color: #b8bfd3;
+    font-size: 15px;
+    margin: 15px auto 30px;
+}
+
+
+/* ==========================================
+   PROGRESS BAR
+   ========================================== */
+
+.cake-progress {
+    width: min(500px, 90%);
+    margin: 0 auto 30px;
+}
+
+.progress-text {
+    margin-bottom: 8px;
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    color: #aeb6cb;
+}
+
+.progress-bar {
+    height: 7px;
+
+    background: rgba(255, 255, 255, 0.1);
+
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+#progressFill {
+    width: 20%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        #e21d48,
+        #ff4d68
+    );
+
+    border-radius: inherit;
+
+    transition: width 0.5s ease;
+}
+
+
+/* ==========================================
+   CAKE STAGE
+   ========================================== */
+
+.cake-stage {
+    width: 100%;
+    min-height: 310px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 25px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 30px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 255, 255, 0.06),
+            transparent 65%
+        );
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.cake-wrapper {
+    position: relative;
+
+    width: 300px;
+    height: 230px;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+
+/* ==========================================
+   CAKE
+   ========================================== */
+
+.cake {
+    position: relative;
+
+    width: 250px;
+    height: 150px;
+
+    transition: 0.5s ease;
+}
+
+
+/* Cake layers */
+
+.cake-layer {
+    position: absolute;
+
+    left: 0;
+
+    width: 100%;
+
+    border-radius: 14px 14px 20px 20px;
+
+    box-shadow:
+        inset 0 -8px 0 rgba(0, 0, 0, 0.12),
+        0 7px 12px rgba(0, 0, 0, 0.2);
+
+    transition: background 0.5s ease;
+}
+
+.cake-bottom {
+    bottom: 0;
+    height: 58px;
+}
+
+.cake-middle {
+    bottom: 43px;
+    height: 55px;
+    width: 92%;
+    left: 4%;
+}
+
+.cake-top {
+    bottom: 84px;
+    height: 48px;
+    width: 84%;
+    left: 8%;
+}
+
+
+/* Cake flavours */
+
+.cake.chocolate .cake-layer {
+    background: linear-gradient(
+        180deg,
+        #8b4b35,
+        #5a291e
+    );
+}
+
+.cake.strawberry .cake-layer {
+    background: linear-gradient(
+        180deg,
+        #ff8ba2,
+        #d94c6a
+    );
+}
+
+.cake.vanilla .cake-layer {
+    background: linear-gradient(
+        180deg,
+        #fff0c4,
+        #d9ad70
+    );
+}
+
+
+/* ==========================================
+   FROSTING
+   ========================================== */
+
+.frosting {
+    position: absolute;
+
+    z-index: 5;
+
+    left: 8%;
+    bottom: 116px;
+
+    width: 84%;
+    height: 25px;
+
+    border-radius: 20px;
+
+    opacity: 0;
+
+    transition: 0.5s ease;
+}
+
+.frosting::after {
+    content: "";
+
+    position: absolute;
+
+    left: 10%;
+    right: 10%;
+    bottom: -10px;
+
+    height: 15px;
+
+    border-radius: 0 0 15px 15px;
+
+    background: inherit;
+}
+
+.frosting.pink {
+    opacity: 1;
+    background: #ff91b2;
+}
+
+.frosting.white {
+    opacity: 1;
+    background: #fff4f7;
+}
+
+.frosting.red {
+    opacity: 1;
+    background: #e52b4f;
+}
+
+
+/* ==========================================
+   DECORATIONS
+   ========================================== */
+
+.cake-decorations {
+    position: absolute;
+
+    z-index: 10;
+
+    left: 10%;
+    right: 10%;
+    top: 0;
+
+    min-height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    flex-wrap: wrap;
+}
+
+.cake-decoration {
+    font-size: 25px;
+
+    animation: decorationPop 0.4s ease;
+}
+
+@keyframes decorationPop {
+
+    0% {
+        transform: scale(0);
+    }
+
+    70% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* ==========================================
+   CANDLES
+   ========================================== */
+
+.candles {
+    position: absolute;
+
+    z-index: 20;
+
+    left: 50%;
+    bottom: 150px;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    gap: 13px;
+}
+
+.candle {
+    position: relative;
+
+    width: 15px;
+    height: 55px;
+}
+
+.candle-stick {
+    width: 15px;
+    height: 48px;
+
+    border-radius: 4px;
+
+    background:
+        repeating-linear-gradient(
+            45deg,
+            #ff4968,
+            #ff4968 5px,
+            #fff 5px,
+            #fff 9px
+        );
+
+    box-shadow:
+        0 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.flame {
+    position: absolute;
+
+    left: 50%;
+    top: -23px;
+
+    transform: translateX(-50%);
+
+    font-size: 21px;
+
+    animation: flameFlicker 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes flameFlicker {
+
+    from {
+        transform: translateX(-50%) scale(1);
+    }
+
+    to {
+        transform: translateX(-50%) scale(1.15) rotate(3deg);
+    }
+}
+
+
+/* ==========================================
+   CONTROLS
+   ========================================== */
+
+.cake-controls {
+    width: min(750px, 100%);
+    margin: auto;
+}
+
+.cake-step {
+    display: none;
+
+    padding: 25px;
+
+    border-radius: 25px;
+
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    backdrop-filter: blur(10px);
+
+    animation: stepAppear 0.5s ease;
+}
+
+.cake-step.active {
+    display: block;
+}
+
+@keyframes stepAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cake-step h2 {
+    margin: 0 0 8px;
+
+    font-family: "Geom", sans-serif;
+    font-size: 25px;
+}
+
+.cake-step p {
+    margin: 0 0 20px;
+
+    color: #aeb6cb;
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   CHOICE BUTTONS
+   ========================================== */
+
+.choice-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.choice-buttons button,
+.next-button,
+.continue-button {
+
+    border: none;
+    cursor: pointer;
+
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+/* Base / frosting buttons */
+
+.cake-choice,
+.frosting-choice,
+.decoration-choice {
+
+    padding: 13px 18px;
+
+    border-radius: 14px;
+
+    color: white;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+.cake-choice:hover,
+.frosting-choice:hover,
+.decoration-choice:hover {
+
+    transform: translateY(-3px);
+
+    background: rgba(255, 50, 80, 0.18);
+
+    box-shadow:
+        0 8px 20px rgba(255, 30, 70, 0.15);
+}
+
+.cake-choice.selected,
+.frosting-choice.selected,
+.decoration-choice.selected {
+
+    background: #e52b4f;
+
+    box-shadow:
+        0 8px 25px rgba(229, 43, 79, 0.3);
+}
+
+
+/* ==========================================
+   NEXT BUTTON
+   ========================================== */
+
+.next-button {
+
+    margin-top: 20px;
+
+    padding: 13px 25px;
+
+    border-radius: 30px;
+
+    color: white;
+
+    background: linear-gradient(
+        135deg,
+        #e21d48,
+        #ff4563
+    );
+
+    box-shadow:
+        0 8px 20px rgba(229, 43, 79, 0.25);
+}
+
+.next-button:hover,
+.continue-button:hover {
+
+    transform: translateY(-3px) scale(1.02);
+}
+
+
+/* ==========================================
+   MESSAGE
+   ========================================== */
+
+.cake-message {
+
+    margin: 20px auto 0;
+
+    min-height: 25px;
+
+    color: #ff91a6;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.message-pop {
+    animation: messagePop 0.35s ease;
+}
+
+@keyframes messagePop {
+
+    0% {
+        transform: scale(0.9);
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+/* ==========================================
+   CONTINUE BUTTON
+   ========================================== */
+
+.continue-button {
+
+    margin-top: 20px;
+
+    padding: 15px 30px;
+
+    border-radius: 30px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e21d48,
+            #ff4563
+        );
+
+    box-shadow:
+        0 10px 30px rgba(229, 43, 79, 0.35);
+}
+
+
+/* ==========================================
+   HIDDEN
+   ========================================== */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* ==========================================
+   CONFETTI
+   ========================================== */
+
+.confetti {
+
+    position: fixed;
+
+    top: -30px;
+
+    z-index: 100;
+
+    font-size: 20px;
+
+    pointer-events: none;
+
+    animation: fallConfetti 3s linear forwards;
+}
+
+@keyframes fallConfetti {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+        opacity: 0;
+    }
+}
+
+
+/* ==========================================
+   MOBILE
+   ========================================== */
+
+@media (max-width: 600px) {
+
+    .cake-container {
+        padding-top: 30px;
+    }
+
+    .cake-stage {
+        min-height: 270px;
+    }
+
+    .cake-wrapper {
+        transform: scale(0.82);
+    }
+
+    .cake-step {
+        padding: 20px 15px;
+    }
+
+    .cake-step h2 {
+        font-size: 21px;
+    }
+
+    .choice-buttons {
+        gap: 8px;
+    }
+
+    .cake-choice,
+    .frosting-choice,
+    .decoration-choice {
+        padding: 11px 13px;
+        font-size: 12px;
+    }
+
+    .cake-subtitle {
+        font-size: 13px;
+    }
+}

@@ -157,11 +157,18 @@ body.balloon-page {
 /* MESSAGE */
 
 .balloon-message {
-    min-height: 45px;
+    position: relative;
+    z-index: 5;
+    display: block;
+    min-height: 60px;
     margin: 20px auto;
-    font-size: 20px;
-    font-weight: 600;
-    color: #ffb3c1;
+    padding: 15px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+    visibility: visible;
+    opacity: 1;
 }
 
 /* CONTINUE BUTTON */

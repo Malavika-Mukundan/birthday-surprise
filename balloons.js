@@ -1,39 +1,42 @@
+
 const balloons = document.querySelectorAll(".balloon");
 const message = document.getElementById("balloonMessage");
 const continueButton = document.getElementById("continueButton");
 
 let poppedCount = 0;
 
-balloons.forEach(balloon => {
+balloons.forEach((balloon) => {
 
-    balloon.addEventListener("click", () => {
+    balloon.addEventListener("click", function () {
 
-        if (balloon.classList.contains("popped")) return;
+        if (this.classList.contains("popped")) return;
 
-        balloon.classList.add("popped");
+        this.classList.add("popped");
 
-        const balloonMessage = balloon.dataset.message;
-        message.textContent = balloonMessage;
+        // Display the message
+        message.innerText = this.getAttribute("data-message");
+
+        // Make sure the message is visible
+        message.style.display = "block";
+        message.style.visibility = "visible";
+        message.style.opacity = "1";
+
+        // Pop the balloon
+        this.style.display = "none";
 
         poppedCount++;
 
-        balloon.style.transform = "scale(0)";
-        balloon.style.opacity = "0";
-        balloon.style.pointerEvents = "none";
-
         if (poppedCount === balloons.length) {
-
-            message.textContent =
+            message.innerText =
                 "🎉 YOU FOUND THEM ALL! MISSION #02 COMPLETE ❤️";
 
             continueButton.classList.remove("hidden");
         }
+
     });
 
 });
 
-continueButton.addEventListener("click", () => {
-
+continueButton.addEventListener("click", function () {
     window.location.href = "surprise.html";
-
 });
